@@ -17,7 +17,7 @@ public class TimeScript : MonoBehaviour
     {
         Text num = GameObject.Find("Time").GetComponent<Text>();
         int time = (int)(60.0f - Time.time);
-        num.text = "Time:" + time;
+        num.text = time.ToString();
         if (time == 0)
         {
             SceneManager.LoadScene("TimeUp");

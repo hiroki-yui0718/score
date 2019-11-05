@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb; // Rididbody
     private int score = 0;
     private int time;
+    int kasanTime = 0;
+    int count = 1;
 
     void Start()
     {
@@ -36,13 +38,26 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.CompareTag("Cube"))
+        if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Cube2"))
         {
-            score += 50;
-            GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
-            Destroy(collision.gameObject);
+            if (kasanTime - int.Parse(GameObject.Find("Time").GetComponent<Text>().text) < 30 && kasanTime != 0)
+            {
+                count++;
+                score += 50;
+                score += 10 * count;
+                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
+                Destroy(collision.gameObject);
+                kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
+            }
+            else
+            {
+                score += 50;
+                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
+                Destroy(collision.gameObject);
+                kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
+            }
         }
-        if(time > 0) 
+
         Debug.Log("Hit"); // ログを表示する
     }
 }
