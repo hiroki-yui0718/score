@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{CAB09144-D635-0D16-3AAB-6F837138167F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NetworkScript.cs">
+    <Files>
+      <File FileName="Assets/Scripts/NetworkScript.cs" Line="32" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MyNetGame PreferredExecutionTarget="65a989d0-616c-4ab7-b726-266c7cb0334f" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
