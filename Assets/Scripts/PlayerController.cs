@@ -8,10 +8,15 @@ public class PlayerController : MonoBehaviour
     public float speed = 20; // 動く速さ
 
     private Rigidbody rb; // Rididbody
-    private int score = 0;
     private int time;
-    int kasanTime = 0;
-    int count = 1;
+
+    public GameObject bullet;
+
+    // 弾丸発射点
+    public Transform muzzle;
+
+    // 弾丸の速度
+    public float speed2 = 1000;
 
     void Start()
     {
@@ -34,30 +39,24 @@ public class PlayerController : MonoBehaviour
 
         // Ridigbody に力を与えて玉を動かす
         rb.AddForce(movement * speed);
-    }
-    void OnCollisionEnter(Collision collision)
-    {
 
-        if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Cube2"))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (kasanTime - int.Parse(GameObject.Find("Time").GetComponent<Text>().text) < 30 && kasanTime != 0)
-            {
-                count++;
-                score += 50;
-                score += 10 * count;
-                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
-                Destroy(collision.gameObject);
-                kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
-            }
-            else
-            {
-                score += 50;
-                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
-                Destroy(collision.gameObject);
-                kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
-            }
-        }
 
-        Debug.Log("Hit"); // ログを表示する
+            // 弾丸の複製
+            GameObject bullets = Instantiate(bullet) as GameObject;
+
+            Vector3 force;
+
+            force = this.gameObject.transform.forward * speed2;
+
+            // Rigidbodyに力を加えて発射
+            bullets.GetComponent<Rigidbody>().AddForce(force);
+
+            // 弾丸の位置を調整
+            bullets.transform.position = muzzle.position;
+        }
     }
+
+
 }
