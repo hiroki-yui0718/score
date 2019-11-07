@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CollisionScript : MonoBehaviour
 {
-    int kasanTime = 0;
+    static int kasanTime = 0;
     int count = 1;
     private int score = 0;
     // Start is called before the first frame update
@@ -27,19 +27,24 @@ public class CollisionScript : MonoBehaviour
             {
                 count++;
                 score += 50;
-                score += 10 * count;
-                GameObject.Find("SCORE").GetComponent<Text>().text = score.ToString();
+                score += (10 * count);
+                int now = int.Parse(GameObject.Find("SCORE").GetComponent<Text>().text);
+                GameObject.Find("SCORE").GetComponent<Text>().text = (now + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
+                Debug.Log("1");
             }
             else
             {
                 score += 50;
-                GameObject.Find("SCORE").GetComponent<Text>().text = score.ToString();
+                int now = int.Parse(GameObject.Find("SCORE").GetComponent<Text>().text);
+                GameObject.Find("SCORE").GetComponent<Text>().text = (now + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
+                Debug.Log("2");
             }
         }
+
 
         Debug.Log("Hit"); // ログを表示する
     }

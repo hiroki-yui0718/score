@@ -26,7 +26,7 @@ public class OnTriggerScript : MonoBehaviour
         void OnCollisionStay(Collision collision)
     {
 
-        Debug.Log(sw.Elapsed.Seconds);
+        GameObject.Find("Plus").GetComponent<Text>().text = sw.Elapsed.Seconds.ToString();
     }
     void OnCollisionExit(Collision other)
     {
@@ -35,6 +35,6 @@ public class OnTriggerScript : MonoBehaviour
         score = (int)(sw.Elapsed.Seconds / 3) * 10;
         int plusScore = int.Parse(GameObject.Find("SCORE").GetComponent<Text>().text) + score;
         GameObject.Find("SCORE").GetComponent<Text>().text = plusScore.ToString();
-        sw.Restart();
+        sw.Reset();
     }
 }
