@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CollisionScript.cs" />
+    <Compile Include="Assets\Scripts\OnTriggerScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TimeScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
