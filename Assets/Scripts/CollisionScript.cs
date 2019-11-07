@@ -28,14 +28,14 @@ public class CollisionScript : MonoBehaviour
                 count++;
                 score += 50;
                 score += 10 * count;
-                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
+                GameObject.Find("SCORE").GetComponent<Text>().text = score.ToString();
                 Destroy(collision.gameObject);
                 kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
             }
             else
             {
                 score += 50;
-                GameObject.Find("SCORE").GetComponent<Text>().text = "SCORE " + score.ToString();
+                GameObject.Find("SCORE").GetComponent<Text>().text = score.ToString();
                 Destroy(collision.gameObject);
                 kasanTime = int.Parse(GameObject.Find("Time").GetComponent<Text>().text);
             }
