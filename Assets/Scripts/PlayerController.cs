@@ -1,61 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
-    public float speed = 20; // 動く速さ
 
-    private Rigidbody rb; // Rididbody
-    private int time;
+    
+    void Start() { }
 
-    public GameObject bullet;
-
-    // 弾丸発射点
-    public Transform muzzle;
-
-    // 弾丸の速度
-    public float speed2 = 1000;
-
-    void Start()
-    {
-        // Rigidbody を取得
-        rb = GetComponent<Rigidbody>();
-    }
-    public void FixedUpdate()
-    {
-        time = (int)(30.0f - Time.time);
-    }
-
+    [ClientCallback]
     void Update()
     {
-        // カーソルキーの入力を取得
-        var moveHorizontal = Input.GetAxis("Horizontal");
-        var moveVertical = Input.GetAxis("Vertical");
+        if (!isLocalPlayer) { return; }
+        // Main Cameraの位置の調整
+        Vector3 v = transform.position;
+        v.z -= 5;
+        v.y += 3;
+        Camera.main.transform.position = v;
+    }
 
-        // カーソルキーの入力に合わせて移動方向を設定
-        var movement = new Vector3(moveHorizontal, 0, moveVertical);
+    [ClientCallback]
+    void FixedUpdate()
+    {
+        if (!isLocalPlayer) { return; }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        CmdMoveSphere(x, z);
+    }
 
-        // Ridigbody に力を与えて玉を動かす
-        rb.AddForce(movement * speed);
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-
-            // 弾丸の複製
-            GameObject bullets = Instantiate(bullet) as GameObject;
-
-            Vector3 force;
-
-            force = this.gameObject.transform.forward * speed2;
-
-            // Rigidbodyに力を加えて発射
-            bullets.GetComponent<Rigidbody>().AddForce(force);
-
-            // 弾丸の位置を調整
-            bullets.transform.position = muzzle.position;
-        }
+    // Sphereの移動
+    [Command]
+    public void CmdMoveSphere(float x, float z)
+    {
+        Vector3 v = new Vector3(x, 0, z) * 10f; //適当に調整
+        GetComponent<Rigidbody>().AddForce(v);
     }
 
 

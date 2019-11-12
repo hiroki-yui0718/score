@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TimeScript : MonoBehaviour
+public class TimeScript : NetworkBehaviour
 {
+
+    [SyncVar]
+    int time = 0;
+
     [SerializeField]
     private GameObject pauseUI;
     // Start is called before the first frame update
@@ -16,7 +21,7 @@ public class TimeScript : MonoBehaviour
     void FixedUpdate()
     {
         Text num = GameObject.Find("Time").GetComponent<Text>();
-        int time = (int)(60.0f - Time.time);
+        time = (int)(60.0f - Time.time);
         num.text = time.ToString();
         if (time == 0)
         {
@@ -43,10 +48,5 @@ public class TimeScript : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
-    }
-    public void OnClick()
-    {
-        if (Time.timeScale != 0) Time.timeScale = 0;
-        else Time.timeScale = 1.0f;
     }
 }
