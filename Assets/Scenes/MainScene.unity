@@ -438,6 +438,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3169195797512520402, guid: 1560d3eba4bcf9044adb024873d32a67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8907315691883376787, guid: 1560d3eba4bcf9044adb024873d32a67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1025,7 +1030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 60
 --- !u!222 &1243967059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1479,6 +1484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f319c848ef38246b14155a5dad24fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1654553975}
   cube1: {fileID: 1762507889}
 --- !u!1001 &1769175823
 PrefabInstance:
