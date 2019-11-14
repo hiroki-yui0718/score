@@ -4,12 +4,6 @@ ScriptsOnlyBuild:
     - OnTriggerScript
     - PlayerController
     - TimeScript
-    Unity.2D.Tilemap.Editor.dll:
-    - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
-    - UnityEditor.Tilemaps.SceneViewGridManager
-    - UnityEditor.Tilemaps.TileDragAndDropManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -61,31 +55,31 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9682}
+      Script: {instanceID: 9664}
     - Class: 114
-      Script: {instanceID: 9718}
+      Script: {instanceID: 9698}
     - Class: 114
-      Script: {instanceID: 9880}
+      Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 9892}
+      Script: {instanceID: 9854}
     - Class: 114
-      Script: {instanceID: 9930}
+      Script: {instanceID: 9890}
     - Class: 114
-      Script: {instanceID: 9974}
+      Script: {instanceID: 9932}
     - Class: 114
-      Script: {instanceID: 10420}
+      Script: {instanceID: 10306}
     - Class: 114
-      Script: {instanceID: 10744}
+      Script: {instanceID: 10594}
     - Class: 114
-      Script: {instanceID: 10912}
+      Script: {instanceID: 10740}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11524}
+      Script: {instanceID: 11280}
     - Class: 114
-      Script: {instanceID: 11812}
+      Script: {instanceID: 11538}
     - Class: 114
-      Script: {instanceID: 11882}
+      Script: {instanceID: 11602}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -127,8 +121,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
@@ -136,34 +128,18 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9726}
+      Script: {instanceID: 9854}
     - Class: 114
-      Script: {instanceID: 9820}
+      Script: {instanceID: 9932}
     - Class: 114
-      Script: {instanceID: 9822}
+      Script: {instanceID: 10594}
     - Class: 114
-      Script: {instanceID: 9892}
+      Script: {instanceID: 11280}
     - Class: 114
-      Script: {instanceID: 9920}
-    - Class: 114
-      Script: {instanceID: 9974}
-    - Class: 114
-      Script: {instanceID: 10140}
-    - Class: 114
-      Script: {instanceID: 10744}
-    - Class: 114
-      Script: {instanceID: 10820}
-    - Class: 114
-      Script: {instanceID: 11258}
-    - Class: 114
-      Script: {instanceID: 11524}
-    - Class: 114
-      Script: {instanceID: 11812}
+      Script: {instanceID: 11538}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
-      Script: {instanceID: 0}
-    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -187,11 +163,11 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9682}
+      Script: {instanceID: 9664}
     - Class: 114
-      Script: {instanceID: 9880}
+      Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11204}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -247,12 +223,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
-  - hash:
-      serializedVersion: 2
-      Hash: 04e4a8b0447477cc4e933d9e5311188f
-    assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
-    namespaceName: UnityEngine.XR.LegacyInputHelpers
-    className: ArmModel
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -381,12 +351,6 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 52bcb9c2a78bdd8d98a59e915c346e75
-    assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
-    namespaceName: UnityEngine.XR.LegacyInputHelpers
-    className: TransitionArmModel
-  - hash:
-      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -399,28 +363,10 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: d251bf88db6c95a6b1aa0b69298da9ef
-    assemblyName: UnityEngine.SpatialTracking.dll
-    namespaceName: UnityEngine.SpatialTracking
-    className: TrackedPoseDriver
-  - hash:
-      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
-  - hash:
-      serializedVersion: 2
-      Hash: 303ad70ce203ad874efe2965d0fbcff9
-    assemblyName: Unity.Analytics.Tracker.dll
-    namespaceName: UnityEngine.Analytics
-    className: AnalyticsEventTracker
-  - hash:
-      serializedVersion: 2
-      Hash: 7fb9de8dcf73854b6b328eca1f7a6e6d
-    assemblyName: Unity.Analytics.Tracker.dll
-    namespaceName: UnityEngine.Analytics
-    className: AnalyticsTracker
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -487,12 +433,6 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkCallbacks
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.Analytics.Editor.dll
-    namespaceName: UnityEditor.Analytics
-    className: AnalyticsEventTrackerEditor
   - hash:
       serializedVersion: 2
       Hash: 21e871d89bbce53c038fc75ad1b7c7f3
@@ -615,12 +555,6 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 516824a435828eadd660ef2f1658a48e
-    assemblyName: Unity.Analytics.DataPrivacy.dll
-    namespaceName: UnityEngine.Analytics
-    className: DataPrivacyButton
-  - hash:
-      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -649,12 +583,6 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkDiscovery
-  - hash:
-      serializedVersion: 2
-      Hash: 893dbdbfe611d62e230a686ea89f1efd
-    assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
-    namespaceName: UnityEngine.XR.LegacyInputHelpers
-    className: SwingArmModel
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -697,6 +625,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 9b895dcabbc1faf095c000c32d471fd0
+    assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
+    namespaceName: UnityEngine.Networking
+    className: NetworkTransformChild
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
