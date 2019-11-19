@@ -1,11 +1,13 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PhotonManager : Photon.MonoBehaviour
 {
-    PhotonNetwork.ConnectUsingSettings("v1.0");
-
+    void OnJoinedLobby()
+    {
+        Debug.Log("PhotonManager OnJoinedLobby");
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,5 @@ public class PhotonManager : Photon.MonoBehaviour
     void Update()
     {
         
-    }
-    void OnJoinedLobby()
-    {
-        Debug.Log("PhotonManager OnJoinedLobby");
     }
 }
