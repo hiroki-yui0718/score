@@ -23,8 +23,8 @@ public class OnTriggerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("Sec1").GetComponent<Text>().text = seconds.ToString();
-        GameObject.Find("Per").GetComponent<Text>().text = percent.ToString();
+        GameObject.Find("Sec1-1").GetComponent<Text>().text = seconds.ToString();
+        GameObject.Find("Per1").GetComponent<Text>().text = percent.ToString();
     }
     void OnCollisionEnter(Collision collision)
     {
