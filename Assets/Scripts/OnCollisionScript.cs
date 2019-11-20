@@ -9,8 +9,8 @@ public class OnCollisionScript : MonoBehaviour
     public GameObject floor;
     public Text sec;
     public Text per;
-    int score;
-    int percent;
+    public static int score;
+    public static int percent;
     float seconds;
     // Start is called before the first frame update
     void Start()
@@ -21,20 +21,21 @@ public class OnCollisionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("Sec2").GetComponent<Text>().text = seconds.ToString();
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit");
+
     }
     void OnCollisionStay(Collision collision)
     {
         seconds += Time.deltaTime;
-        percent = int.Parse(per.text);
-        if(seconds >= 1.0f && percent > 0)
+        OnTriggerScript.percent = int.Parse(per.text);
+        if (seconds >= 1.0f && OnTriggerScript.percent > 0)
         {
-            percent -= 10;
+            OnTriggerScript.percent -= 10;
             seconds = 0.0f;
-            if (percent == 0)
+            if (OnTriggerScript.percent == 0)
             {
                 floor.gameObject.GetComponent<Renderer>().material.color = Color.black;
             }
