@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OnTriggerScript : MonoBehaviour
+public class InCollisionScript1: MonoBehaviour
 {
     public Text scoreText;
     public GameObject floor;

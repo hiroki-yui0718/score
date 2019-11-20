@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OnCollisionScript : MonoBehaviour
+public class OutCollisionScript1 : MonoBehaviour
 {
     public Text scoreText;
     public GameObject floor;
@@ -30,12 +30,12 @@ public class OnCollisionScript : MonoBehaviour
     void OnCollisionStay(Collision collision)
     {
         seconds += Time.deltaTime;
-        OnTriggerScript.percent = int.Parse(per.text);
-        if (seconds >= 1.0f && OnTriggerScript.percent > 0)
+        InCollisionScript1.percent = int.Parse(per.text);
+        if (seconds >= 1.0f && InCollisionScript1.percent > 0)
         {
-            OnTriggerScript.percent -= 10;
+            InCollisionScript1.percent -= 10;
             seconds = 0.0f;
-            if (OnTriggerScript.percent == 0)
+            if (InCollisionScript1.percent == 0)
             {
                 floor.gameObject.GetComponent<Renderer>().material.color = Color.black;
             }

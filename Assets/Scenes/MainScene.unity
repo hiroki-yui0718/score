@@ -1593,9 +1593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b3ad5798f994f4b9a3b22759f78ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Area1: {fileID: 0}
-  Area2: {fileID: 0}
-  ScoreText: {fileID: 0}
+  Area1: {fileID: 1762507889}
+  Area2: {fileID: 1918678068}
+  ScoreText: {fileID: 1654553975}
   seconds: 0
 --- !u!1 &1370826866
 GameObject:
@@ -1930,6 +1930,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1769175823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1762507890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762507889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed522b539e4420c4ea3e5f6fd4847aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1654553975}
+  floor: {fileID: 1918678068}
+  sec: {fileID: 2101474422}
+  per: {fileID: 448475029}
 --- !u!114 &1762507894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2363,7 @@ GameObject:
   - component: {fileID: 1918678070}
   - component: {fileID: 1918678069}
   - component: {fileID: 1918678073}
+  - component: {fileID: 1918678074}
   m_Layer: 0
   m_Name: Area2
   m_TagString: Untagged
@@ -2387,7 +2404,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 886151c5f712f994a9e6bf0209f6adeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2449,6 +2466,22 @@ MonoBehaviour:
   floor: {fileID: 1918678068}
   sec: {fileID: 1844192375}
   per: {fileID: 448475029}
+--- !u!114 &1918678074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918678068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e68f24d8b1a444990a0e322aef6689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1654553975}
+  floor: {fileID: 1762507889}
+  sec: {fileID: 687431938}
+  per: {fileID: 1181273291}
 --- !u!1 &2004887728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1271932565194692, guid: 6f43f15661f573f4fb27517b18e8e1e6,
@@ -2512,7 +2545,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101474420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2521,7 +2554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -111.1, y: -167}
+  m_AnchoredPosition: {x: -111.10004, y: -167}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2101474422
