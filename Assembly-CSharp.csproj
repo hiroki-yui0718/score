@@ -209,12 +209,10 @@
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Scripts\AddChainScript.cs" />
     <Compile Include="Assets\Scripts\CollisionScript.cs" />
-    <Compile Include="Assets\Scripts\CubeScript.cs" />
     <Compile Include="Assets\Scripts\InCollisionScript1.cs" />
     <Compile Include="Assets\Scripts\InCollisionScript2.cs" />
     <Compile Include="Assets\Scripts\OutCollisionScript1.cs" />
     <Compile Include="Assets\Scripts\OutCollisionScript2.cs" />
-    <Compile Include="Assets\Scripts\PhotonManager.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\TimeScript.cs" />
     <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
