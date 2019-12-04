@@ -4,20 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TimeScript : MonoBehaviour
+public class TimeScript : Photon.MonoBehaviour
 {
-    [SerializeField]
+    public float hensu = 100f;
+    private GameObject TimeTextObj;
+    public Text TimeText;
     private GameObject pauseUI;
     // Start is called before the first frame update
     void Start()
     {
     }
-    void FixedUpdate()
+    void LateUpdate()
     {
-        Text num = GameObject.Find("Time").GetComponent<Text>();
-        int time = (int)(60.0f - Time.time);
-        num.text = time.ToString();
-        if (time == 0)
+        TimeText.text = ((int)hensu).ToString();
+        hensu -= Time.deltaTime;
+    }
+    void FixedUpdate()
+    { 
+        if (hensu == 0)
         {
             SceneManager.LoadScene("TimeUp");
         }
@@ -48,5 +52,18 @@ public class TimeScript : MonoBehaviour
     {
         if (Time.timeScale != 0) Time.timeScale = 0;
         else Time.timeScale = 1.0f;
+    }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            //データの送信
+            stream.SendNext(hensu);
+        }
+        else
+        {
+            //データの受信
+            this.hensu = (int)(float)stream.ReceiveNext();
+        }
     }
 }
