@@ -41,7 +41,6 @@ ScriptsOnlyBuild:
     - RPGMovement
     - ServerSettings
     - ShowInfoOfPlayer
-    - SyncScript
     - ThirdPersonCamera
     - ThirdPersonController
     - ThirdPersonNetwork
@@ -105,8 +104,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9962}
     - Class: 114
-      Script: {instanceID: 9972}
-    - Class: 114
       Script: {instanceID: 10212}
     - Class: 114
       Script: {instanceID: 10364}
@@ -114,8 +111,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10460}
     - Class: 114
       Script: {instanceID: 10784}
-    - Class: 114
-      Script: {instanceID: 10830}
     - Class: 114
       Script: {instanceID: 10968}
     - Class: 114
