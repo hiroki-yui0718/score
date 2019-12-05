@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class CollisionScript : MonoBehaviour
+public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Text Score;
     static float kasanTime = 30;
@@ -19,6 +20,7 @@ public class CollisionScript : MonoBehaviour
     void Update()
     {
         kasanTime+= Time.deltaTime;
+        Score.text = score.ToString();
 
     }
     void OnCollisionEnter(Collision collision)
@@ -45,5 +47,19 @@ public class CollisionScript : MonoBehaviour
 
 
         Debug.Log("Hit"); // ログを表示する
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(score);
+
+        }
+        // オーナー以外の場合
+        else
+        {
+            this.score = (int)stream.ReceiveNext();
+
+        }
     }
 }

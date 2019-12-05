@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
 public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
@@ -14,6 +13,20 @@ public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(hensu);
+
+        }
+        // オーナー以外の場合
+        else
+        {
+            this.hensu = (int)(float)(stream.ReceiveNext());
+
+        }
     }
     void Update()
     {
@@ -34,20 +47,6 @@ public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
             {
                 Time.timeScale = 1f;
             }
-        }
-    }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(hensu);
-            
-        }
-        // オーナー以外の場合
-        else
-        {
-            this.hensu = (int)(float)(stream.ReceiveNext());
-            
         }
     }
     void FixedUpdate() {
