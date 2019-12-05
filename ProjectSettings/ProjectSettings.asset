@@ -599,7 +599,8 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -619,10 +620,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 4a9e61e8-6a06-40c4-82d8-e986025e6d39
+  cloudProjectId: 188b13bc-ba09-4eb5-9f1b-f8f9fa0dd433
   framebufferDepthMemorylessMode: 0
   projectName: MyNetGame
-  organizationId: ocs_unity
+  organizationId: hiroki_yui0718
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

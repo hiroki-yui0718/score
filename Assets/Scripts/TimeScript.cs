@@ -2,35 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
-public class TimeScript : Photon.MonoBehaviour
+public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public float hensu = 100f;
-    private GameObject TimeTextObj;
+    private float hensu = 100f;
     public Text TimeText;
     private GameObject pauseUI;
     // Start is called before the first frame update
     void Start()
     {
     }
-    void LateUpdate()
+    void Update()
     {
         TimeText.text = ((int)hensu).ToString();
         hensu -= Time.deltaTime;
-    }
-    void FixedUpdate()
-    { 
-        if (hensu == 0)
-        {
-            SceneManager.LoadScene("TimeUp");
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
         if (Input.GetKeyDown("space"))
         {
             //　ポーズUIのアクティブ、非アクティブを切り替え
@@ -48,22 +36,29 @@ public class TimeScript : Photon.MonoBehaviour
             }
         }
     }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(hensu);
+            
+        }
+        // オーナー以外の場合
+        else
+        {
+            this.hensu = (int)(float)(stream.ReceiveNext());
+            
+        }
+    }
+    void FixedUpdate() {
+        if (hensu == 0)
+        {
+            SceneManager.LoadScene("TimeUp");
+        }
+    }
     public void OnClick()
     {
         if (Time.timeScale != 0) Time.timeScale = 0;
         else Time.timeScale = 1.0f;
-    }
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            //データの送信
-            stream.SendNext(hensu);
-        }
-        else
-        {
-            //データの受信
-            this.hensu = (int)(float)stream.ReceiveNext();
-        }
     }
 }
