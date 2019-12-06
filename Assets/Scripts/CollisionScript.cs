@@ -4,25 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
+public class CollisionScript : MonoBehaviourPunCallbacks
 {
+
     public Text Score;
     static float kasanTime = 30;
     int count = 1;
-    private int score = 0;
+    private int score;
+    int su;
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
+}
+    public void SendMethod()
+    {
         
+
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         kasanTime+= Time.deltaTime;
-        Score.text = score.ToString();
+  
 
     }
+    
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Cube") || collision.gameObject.CompareTag("Cube1") || collision.gameObject.CompareTag("Cube2"))
@@ -30,36 +38,42 @@ public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
             if (kasanTime > 0 && kasanTime <= 30)
             {
                 count++;
-                score += 50;
-                score += (10 * count);
+                if (photonView.IsMine)
+                {
+                    PhotonView photonView = GetComponent<PhotonView>();
+                    photonView.RPC("addScore50", RpcTarget.All, 50);
+                    photonView.RPC("addScore10", RpcTarget.All, 10 * count);
+                }
                 Score.text = (int.Parse(Score.text) + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
             else
             {
-                score += 50;
+                if (photonView.IsMine)
+                {
+                    PhotonView photonView = GetComponent<PhotonView>();
+                    photonView.RPC("addScore50", RpcTarget.All, 50);
+                }
                 Score.text = (int.Parse(Score.text) + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
+            
         }
 
 
         Debug.Log("Hit"); // ログを表示する
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    [PunRPC]
+    void addScore50(int su)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(score);
-
-        }
-        // オーナー以外の場合
-        else
-        {
-            this.score = (int)stream.ReceiveNext();
-
-        }
+        score += su;
     }
+    [PunRPC]
+    void addScore10(int su)
+    {
+        score += su;
+    }
+
 }

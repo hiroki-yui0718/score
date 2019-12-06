@@ -6,7 +6,6 @@ public class PlayerController: MonoBehaviour {
  public float speed = 20; // 動く速さ
 
     private Rigidbody rb; // Rididbody
-    private int time;
 
     public GameObject bullet;
 
@@ -20,10 +19,6 @@ public class PlayerController: MonoBehaviour {
     {
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
-    }
-    public void FixedUpdate()
-    {
-
     }
 
     void Update()

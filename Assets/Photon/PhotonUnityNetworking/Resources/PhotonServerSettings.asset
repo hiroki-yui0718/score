@@ -35,5 +35,10 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - LateUpdate
+  - OnCollisionEnter
+  - addScore1
+  - addScore2
+  - addScore10
+  - addScore50
   DisableAutoOpenWizard: 1
   ShowSettings: 1
