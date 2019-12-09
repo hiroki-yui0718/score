@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class PlayerController: MonoBehaviour { 
  public float speed = 20; // 動く速さ
-
-    private Rigidbody rb; // Rididbody
-
+    public float speed2 = 1000;
     public GameObject bullet;
 
     // 弾丸発射点
     public Transform muzzle;
-
-    // 弾丸の速度
-    public float speed2 = 1000;
-
+    private Rigidbody rb;
+    // Rididbody
     void Start()
     {
         // Rigidbody を取得
@@ -35,8 +31,6 @@ public class PlayerController: MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-
-            // 弾丸の複製
             GameObject bullets = Instantiate(bullet) as GameObject;
 
             Vector3 force;

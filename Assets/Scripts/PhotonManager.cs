@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
 
-    static string GAME_VERSION = "Ver.1";
+    static string GAME_VERSION = "v1.0.0";
 
     static RoomOptions ROOM_OPTIONS = new RoomOptions()
     {

@@ -4,30 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class CollisionScript : MonoBehaviourPunCallbacks
+public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
 {
 
     public Text Score;
     static float kasanTime = 30;
     int count = 1;
     private int score;
-    int su;
+
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
-}
-    public void SendMethod()
-    {
-        
 
     }
-
         // Update is called once per frame
         void Update()
     {
-        kasanTime+= Time.deltaTime;
-  
+
+        kasanTime += Time.deltaTime;
 
     }
     
@@ -38,42 +33,36 @@ public class CollisionScript : MonoBehaviourPunCallbacks
             if (kasanTime > 0 && kasanTime <= 30)
             {
                 count++;
-                if (photonView.IsMine)
-                {
-                    PhotonView photonView = GetComponent<PhotonView>();
-                    photonView.RPC("addScore50", RpcTarget.All, 50);
-                    photonView.RPC("addScore10", RpcTarget.All, 10 * count);
-                }
+                score += 50;
+                score += 10 * count;
                 Score.text = (int.Parse(Score.text) + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
             else
-            {
-                if (photonView.IsMine)
-                {
-                    PhotonView photonView = GetComponent<PhotonView>();
-                    photonView.RPC("addScore50", RpcTarget.All, 50);
-                }
+              {
+                score += 50;
                 Score.text = (int.Parse(Score.text) + score).ToString();
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
             
         }
-
-
         Debug.Log("Hit"); // ログを表示する
     }
-    [PunRPC]
-    void addScore50(int su)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        score += su;
-    }
-    [PunRPC]
-    void addScore10(int su)
-    {
-        score += su;
+        if (stream.IsWriting)
+        {
+            stream.SendNext(score);
+
+        }
+        // オーナー以外の場合
+        else
+        {
+            this.score = (int)(stream.ReceiveNext());
+
+        }
     }
 
 }

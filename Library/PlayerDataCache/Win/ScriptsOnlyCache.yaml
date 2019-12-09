@@ -1331,7 +1331,7 @@ ScriptsOnlyBuild:
     className: ProceduralController
   - hash:
       serializedVersion: 2
-      Hash: c779b8f202a05a8e569126d955dd5239
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -1583,7 +1583,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomIsOfflineProperty
   - hash:
       serializedVersion: 2
-      Hash: d40fb311f61fbef33807687a6bd16a6a
+      Hash: 93c80be82fc02b685566e8e19fe44aa4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollisionScript
