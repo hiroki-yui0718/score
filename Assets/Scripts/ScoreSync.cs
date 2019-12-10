@@ -4,36 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class ScoreSync : MonoBehaviourPunCallbacks, IPunObservable
+public class ScoreSync : MonoBehaviourPunCallbacks
 {
-    public Text TimeText;
-    public Text Score;
-    private float hensu;
-    private int score;
-
+    public Text text;
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.score = int.Parse(Score.text);
+
+            PhotonView photonView = GetComponent<PhotonView>(); //①必ずPhotonViewをマウンド
+            if (photonView.IsMine == false) //②なぜかTrueにならない
+            {
+                Debug.Log("True1");
+                photonView.RPC(nameof(Score), RpcTarget.All, CollisionScript.score, InCollisionScript1.score,InCollisionScript2.score,AddChainScript.score);
+            }
+        
+
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    [PunRPC]
+    void Score(int score1,int score2,int score3,int score4)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(score);
-
-        }
-        // オーナー以外の場合
-        else
-        {
-            this.score = (int)stream.ReceiveNext();
-
-        }
+        Debug.Log("True2");
+        score += score1 + score2 + score3 +score4;　//③変数+変化を指定
+        text.text = score.ToString();
+        CollisionScript.score = 0;  //⑤当たり判定・足し算初期化
+        InCollisionScript1.score = 0;
+        InCollisionScript2.score = 0;
+        AddChainScript.score = 0;
     }
 }

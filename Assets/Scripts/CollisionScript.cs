@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
+public class CollisionScript :MonoBehaviour
 {
-
-    public Text Score;
     static float kasanTime = 30;
     int count = 1;
-    private int score;
+    public static int score;
 
     // Start is called before the first frame update
     void Start()
@@ -33,36 +31,19 @@ public class CollisionScript : MonoBehaviourPunCallbacks, IPunObservable
             if (kasanTime > 0 && kasanTime <= 30)
             {
                 count++;
-                score += 50;
-                score += 10 * count;
-                Score.text = (int.Parse(Score.text) + score).ToString();
+                score = 50 + (10 * count);
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
             else
               {
-                score += 50;
-                Score.text = (int.Parse(Score.text) + score).ToString();
+                score = 50;
                 Destroy(collision.gameObject);
                 kasanTime = 0;
             }
             
         }
         Debug.Log("Hit"); // ログを表示する
-    }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(score);
-
-        }
-        // オーナー以外の場合
-        else
-        {
-            this.score = (int)(stream.ReceiveNext());
-
-        }
     }
 
 }

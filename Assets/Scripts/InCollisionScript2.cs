@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class InCollisionScript2 : MonoBehaviour
 {
-    public Text scoreText;
     public GameObject floor;
     public Text sec;
     public Text per;
     public static int percent2;
     float seconds;
+    public static int score = 0;
    
 
 
@@ -23,8 +23,8 @@ public class InCollisionScript2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("Sec2-1").GetComponent<Text>().text = seconds.ToString();
-        GameObject.Find("Per2").GetComponent<Text>().text = percent2.ToString();
+        sec.text = seconds.ToString();
+        per.text = percent2.ToString();
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -40,14 +40,14 @@ public class InCollisionScript2 : MonoBehaviour
             seconds = 0.0f;
             if (percent2 == 100)
             {
-                scoreText.text = (int.Parse(scoreText.text) + 100).ToString();
+                score = 100;
                 floor.gameObject.GetComponent<Renderer>().material.color = Color.red;
             }
         }
         else if (seconds >= 3.0f && percent2 == 100)
         {
             seconds = 0.0f;
-            scoreText.text = (int.Parse(scoreText.text) + 10).ToString();
+            score = 10;
         }
 
 

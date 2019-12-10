@@ -5,35 +5,33 @@ using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
+public class TimeScript : MonoBehaviour
 {
-    private float hensu = 100f;
-    public Text TimeText;
-    private GameObject pauseUI;
+    [SerializeField]
+    public GameObject pauseUI; //当てはめないといけない
+    public static float time = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0.5f;
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+
+    void FixedUpdate()
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(hensu);
 
-        }
-        // オーナー以外の場合
-        else
+        time -= Time.deltaTime;
+        if (time <= 0)
         {
-            this.hensu = (int)(float)(stream.ReceiveNext());
-
+            SceneManager.LoadScene("TimeUp");
         }
     }
     void Update()
     {
-        TimeText.text = ((int)hensu).ToString();
-        hensu -= Time.deltaTime;
+ 
         if (Input.GetKeyDown("space"))
         {
+            
             //　ポーズUIのアクティブ、非アクティブを切り替え
             pauseUI.SetActive(!pauseUI.activeSelf);
 
@@ -48,16 +46,6 @@ public class TimeScript : MonoBehaviourPunCallbacks, IPunObservable
                 Time.timeScale = 1f;
             }
         }
-    }
-    void FixedUpdate() {
-        if (hensu == 0)
-        {
-            SceneManager.LoadScene("TimeUp");
-        }
-    }
-    public void OnClick()
-    {
-        if (Time.timeScale != 0) Time.timeScale = 0;
-        else Time.timeScale = 1.0f;
+
     }
 }

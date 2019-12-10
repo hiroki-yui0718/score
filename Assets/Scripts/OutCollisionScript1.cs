@@ -21,7 +21,7 @@ public class OutCollisionScript1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("Sec1-2").GetComponent<Text>().text = seconds.ToString();
+        sec.text = seconds.ToString();
     }
     void OnCollisionEnter(Collision collision)
     {

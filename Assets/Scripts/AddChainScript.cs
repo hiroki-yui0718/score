@@ -10,6 +10,7 @@ public class AddChainScript : MonoBehaviour
     public Text ScoreText;
     public float seconds;
     bool flg = true;
+    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,12 @@ public class AddChainScript : MonoBehaviour
             if (flg)
             {
                 flg = false;
-                ScoreText.text = (int.Parse(ScoreText.text) + 50).ToString();
+                score = 50;
             }
                 seconds += Time.deltaTime;
                 if (seconds >= 3.0f)
                 {
-                    ScoreText.text = (int.Parse(ScoreText.text) + 5).ToString();
+                    score = 5;
                     seconds = 0;
                 }
             

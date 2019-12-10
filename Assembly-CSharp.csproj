@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ScoreSync.cs" />
     <Compile Include="Assets\Scripts\TimeScript.cs" />
+    <Compile Include="Assets\Scripts\TimeSync.cs" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />

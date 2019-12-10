@@ -42,5 +42,7 @@ MonoBehaviour:
   - addScore50
   - AddScore10
   - AddScore50
+  - Score
+  - Time
   DisableAutoOpenWizard: 1
   ShowSettings: 1
